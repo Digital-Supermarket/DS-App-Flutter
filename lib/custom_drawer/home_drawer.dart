@@ -43,21 +43,6 @@ class _HomeDrawerState extends State<HomeDrawer> {
         labelName: 'FeedBack',
         icon: Icon(Icons.help),
       ),
-      DrawerList(
-        index: DrawerIndex.Invite,
-        labelName: 'Invite Friend',
-        icon: Icon(Icons.group),
-      ),
-      DrawerList(
-        index: DrawerIndex.Share,
-        labelName: 'Rate the app',
-        icon: Icon(Icons.share),
-      ),
-      DrawerList(
-        index: DrawerIndex.About,
-        labelName: 'About Us',
-        icon: Icon(Icons.info),
-      ),
     ];
   }
 
@@ -197,17 +182,6 @@ class _HomeDrawerState extends State<HomeDrawer> {
                   Container(
                     width: 6.0,
                     height: 46.0,
-                    // decoration: BoxDecoration(
-                    //   color: widget.screenIndex == listData.index
-                    //       ? Colors.blue
-                    //       : Colors.transparent,
-                    //   borderRadius: new BorderRadius.only(
-                    //     topLeft: Radius.circular(0),
-                    //     topRight: Radius.circular(16),
-                    //     bottomLeft: Radius.circular(0),
-                    //     bottomRight: Radius.circular(16),
-                    //   ),
-                    // ),
                   ),
                   const Padding(
                     padding: EdgeInsets.all(4.0),
@@ -290,10 +264,6 @@ enum DrawerIndex {
   HOME,
   FeedBack,
   Help,
-  Share,
-  About,
-  Invite,
-  Testing,
 }
 
 class DrawerList {

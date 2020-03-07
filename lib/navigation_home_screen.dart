@@ -4,7 +4,6 @@ import 'package:best_flutter_ui_templates/custom_drawer/home_drawer.dart';
 import 'package:best_flutter_ui_templates/feedback_screen.dart';
 import 'package:best_flutter_ui_templates/help_screen.dart';
 import 'package:best_flutter_ui_templates/home_screen.dart';
-import 'package:best_flutter_ui_templates/invite_friend_screen.dart';
 import 'package:flutter/material.dart';
 
 class NavigationHomeScreen extends StatefulWidget {
@@ -64,11 +63,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
         setState(() {
           screenView = FeedbackScreen();
         });
-      } else if (drawerIndex == DrawerIndex.Invite) {
-        setState(() {
-          screenView = InviteFriend();
-        });
-      } else {
+      }  else {
         //do in your way......
       }
     }

@@ -1,4 +1,5 @@
 import 'package:best_flutter_ui_templates/app_theme.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FeedbackScreen extends StatefulWidget {
@@ -74,7 +75,8 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                           color: Colors.transparent,
                           child: InkWell(
                             onTap: () {
-                              FocusScope.of(context).requestFocus(FocusNode());
+                              print("it is sent");
+                              showAlertDialog(context);
                             },
                             child: Center(
                               child: Padding(
@@ -144,4 +146,31 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
       ),
     );
   }
+}
+
+showAlertDialog(BuildContext context) {
+  // set up the button
+  Widget okButton = FlatButton(
+    child: Text("OK"),
+    onPressed: () {
+      Navigator.of(context).pop(); // dismiss dialog
+    },
+  );
+
+  // set up the AlertDialog
+  CupertinoAlertDialog alert = CupertinoAlertDialog(
+    title: Text("Thank you ♥"),
+    content: Text("Your message is delivered!"),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }
