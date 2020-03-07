@@ -1,7 +1,9 @@
 import 'package:best_flutter_ui_templates/app_theme.dart';
 import 'package:best_flutter_ui_templates/feedback_screen.dart';
 import 'package:best_flutter_ui_templates/start_shopping.dart';
+import 'package:best_flutter_ui_templates/shopping_list.dart';
 import 'package:flutter/material.dart';
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key key}) : super(key: key);
@@ -58,13 +60,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                         ),
                         appLogoMainPage(),
                         welcomeText("Welcome Username!"),
-                        mainButton("Start Shopping" , context),
+                        mainButton("Start Shopping" , context , "ss"),
                         buttonDescription(
                             "Scan items, add to your cart, chekout using your phone!"),
-                        mainButton("Shopping List" , context),
+                        mainButton("Shopping Lists" , context , "sl"),
                         buttonDescription(
                             "Create, review, or edit your shopping lists!"),
-                        mainButton("Statistics" , context),
+                        mainButton("Statistics" , context, ""),
                         buttonDescription(
                             "Review most purchased items, stats, spendings and more!"),
                       ],
@@ -128,7 +130,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   }
 }
 
-Widget mainButton(String text , context) {
+Widget mainButton(String text , context , page) {
   return Center(
       child: Container(
     padding: const EdgeInsets.only(top: 10.0),
@@ -137,7 +139,14 @@ Widget mainButton(String text , context) {
     child: FlatButton(
       onPressed: () {
         print("this is a test");
-        goToStartShopping(context);
+        if(page == "ss"){
+          goToStartShopping(context);
+        } if (page == "sl"){
+          goToShoppingLists(context);
+        } else 
+        {
+          print("not impl");
+        }
       },
       color: const Color(0xFF045474),
       textColor: Colors.white,
@@ -191,16 +200,10 @@ Widget welcomeText(String text) {
 
 Widget appLogoMainPage() {
   return Container(
-    height: 120,
-    width: 120,
+    height: 250,
+    width: 250,
     decoration: BoxDecoration(
       shape: BoxShape.rectangle,
-      boxShadow: <BoxShadow>[
-        BoxShadow(
-            color: AppTheme.grey.withOpacity(0.6),
-            offset: const Offset(4.0, 4.0),
-            blurRadius: 8),
-      ],
     ),
     child: ClipRRect(
       //borderRadius: const BorderRadius.all(),
@@ -213,5 +216,12 @@ goToStartShopping(context) {
   Navigator.push(
     context,
     MaterialPageRoute(builder: (context) => StartShopping()),
+  );
+}
+
+goToShoppingLists(context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => ShoppingList()),
   );
 }

@@ -29,7 +29,7 @@ class _StartShopping extends State<StartShopping> {
                     left: 16,
                     right: 16),
                 child: Text(
-                  "Start Shopping now",
+                  "Start Shopping Now",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
