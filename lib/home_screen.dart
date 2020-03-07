@@ -1,4 +1,6 @@
 import 'package:best_flutter_ui_templates/app_theme.dart';
+import 'package:best_flutter_ui_templates/feedback_screen.dart';
+import 'package:best_flutter_ui_templates/start_shopping.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -56,13 +58,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                         ),
                         appLogoMainPage(),
                         welcomeText("Welcome Username!"),
-                        mainButton("Start Shopping"),
+                        mainButton("Start Shopping" , context),
                         buttonDescription(
                             "Scan items, add to your cart, chekout using your phone!"),
-                        mainButton("Shopping List"),
+                        mainButton("Shopping List" , context),
                         buttonDescription(
                             "Create, review, or edit your shopping lists!"),
-                        mainButton("Statistics"),
+                        mainButton("Statistics" , context),
                         buttonDescription(
                             "Review most purchased items, stats, spendings and more!"),
                       ],
@@ -126,7 +128,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   }
 }
 
-Widget mainButton(String text) {
+Widget mainButton(String text , context) {
   return Center(
       child: Container(
     padding: const EdgeInsets.only(top: 10.0),
@@ -135,6 +137,7 @@ Widget mainButton(String text) {
     child: FlatButton(
       onPressed: () {
         print("this is a test");
+        goToStartShopping(context);
       },
       color: const Color(0xFF045474),
       textColor: Colors.white,
@@ -203,5 +206,12 @@ Widget appLogoMainPage() {
       //borderRadius: const BorderRadius.all(),
       child: Image.asset('assets/images/logo.png'),
     ),
+  );
+}
+
+goToStartShopping(context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => StartShopping()),
   );
 }
