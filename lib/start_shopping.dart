@@ -50,7 +50,9 @@ class _StartShopping extends State<StartShopping> {
                   ),
                 ),
               ),
-              Padding(padding: const EdgeInsets.only(top: 50),),
+              Padding(
+                padding: const EdgeInsets.only(top: 50),
+              ),
               buttons(),
             ],
           ),
@@ -80,21 +82,19 @@ Widget appBar(title, context) {
 }
 
 Widget shoppingLists(text) {
-  return InkWell(
-    onTap: () {
-      // Show to shopping lists here
+  return FlatButton(
+    color: const Color(0xFF045474),
+    textColor: Colors.white,
+    disabledColor: Colors.grey,
+    disabledTextColor: Colors.black,
+    padding: EdgeInsets.all(4.0),
+    shape: new RoundedRectangleBorder(
+        borderRadius: new BorderRadius.circular(30.0)),
+    onPressed: () {
+      print("pressed");
     },
-    child: Center(
-      child: Padding(
-        padding: const EdgeInsets.all(4.0),
-        child: Text(
-          text,
-          style: TextStyle(
-            fontWeight: FontWeight.w500,
-            color: Colors.white,
-          ),
-        ),
-      ),
+    child: Text(
+      text,
     ),
   );
 }
@@ -106,22 +106,11 @@ Widget buttons() {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Container(
+         Container(
             width: 140,
             height: 40,
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              borderRadius: const BorderRadius.all(Radius.circular(4.0)),
-              boxShadow: <BoxShadow>[
-                BoxShadow(
-                    color: Colors.grey.withOpacity(0.6),
-                    offset: const Offset(4, 4),
-                    blurRadius: 8.0),
-              ],
-            ),
             child: Material(
-                color: Colors.transparent,
-                child: shoppingLists("Shopping Lists")),
+                color: Colors.transparent, child: shoppingLists("Shopping lists")),
           ),
           Padding(
             padding: const EdgeInsets.all(10),
@@ -129,19 +118,8 @@ Widget buttons() {
           Container(
             width: 140,
             height: 40,
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              borderRadius: const BorderRadius.all(Radius.circular(4.0)),
-              boxShadow: <BoxShadow>[
-                BoxShadow(
-                    color: Colors.grey.withOpacity(0.6),
-                    offset: const Offset(4, 4),
-                    blurRadius: 8.0),
-              ],
-            ),
             child: Material(
-                color: Colors.transparent,
-                child: shoppingLists("Start Now")),
+                color: Colors.transparent, child: shoppingLists("Start Now")),
           ),
         ],
       ),

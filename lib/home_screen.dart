@@ -55,9 +55,6 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(top: 40),
-                        ),
                         appLogoMainPage(),
                         welcomeText("Welcome Username!"),
                         mainButton("Start Shopping" , context , "ss"),
@@ -135,8 +132,9 @@ Widget mainButton(String text , context , page) {
       child: Container(
     padding: const EdgeInsets.only(top: 10.0),
     width: 300,
-    height: 50,
+    height: 70,
     child: FlatButton(
+      hoverColor: const Color(0xFF045474),
       onPressed: () {
         print("this is a test");
         if(page == "ss"){
@@ -155,7 +153,7 @@ Widget mainButton(String text , context , page) {
       padding: EdgeInsets.all(4.0),
       shape: new RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(30.0)),
-      child: Text(text),
+      child: Text(text, style: TextStyle(fontSize: 23),),
     ),
   ));
 }
